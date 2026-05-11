@@ -26,8 +26,13 @@ Diferente do C++, que utiliza tabelas estáticas (`.eh_frame`), esta implementa�
 
 ## Problemas
 
-- **Nesting:** O nest de blocos try é impossível por agora por colisão de hashes e sobrescrita de slots
-- **Riscos:** É possível que algum inteiro (int) infelizmente termine com o ultimo bit 0x1, confundindo o Stack Unwinding e fazendo um jump e tentativa de destruição em uma região não previsível e com certeza fora dos limites da arena, o que resultará em uma Segmentation Violation
+- **Nesting:** O nest de blocos `try` é impossível por agora por colisão de hashes e sobrescrita de slots
+- **Riscos:** É possível que algum inteiro (`int`) infelizmente termine com o ultimo bit 0x1, confundindo o Stack Unwinding e fazendo um jump e tentativa de destruição em uma região não previsível e com certeza fora dos limites da arena, o que resultará em uma Segmentation Violation
+
+## Avisos
+
+Essa biblioteca não é séria, não se trata de um projeto real a ser mantido, ela provavelmente tende a ser abandonada e arquivada quando o objetivo de implementação for cumprido.
+Dito isso, não utilize qualquer uma das ferramentas estabelecidas nesse repositório em algum projeto real, se a necessidade de Exceptions for real, utilize uma linguagem que forneça suporte a essa prática como C++ ou Java ao invés de tentar implementar algo assim em C, isso é somente um teste dos limites da linguagem (e da criatividade :D)
 
 ## Requisitos Técnicos
 
