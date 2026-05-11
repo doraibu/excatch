@@ -32,7 +32,9 @@ Diferente do C++, que utiliza tabelas estáticas (`.eh_frame`), esta implementa�
 ## Avisos
 
 Essa biblioteca não é séria, não se trata de um projeto real a ser mantido, ela provavelmente tende a ser abandonada e arquivada quando o objetivo de implementação for cumprido.
-Dito isso, não utilize qualquer uma das ferramentas estabelecidas nesse repositório em algum projeto real, se a necessidade de Exceptions for real, utilize uma linguagem que forneça suporte a essa prática como C++ ou Java ao invés de tentar implementar algo assim em C, isso é somente um teste dos limites da linguagem (e da criatividade :D)
+Dito isso, não utilize qualquer uma das ferramentas estabelecidas nesse repositório em algum projeto real, se a necessidade de Exceptions for real, utilize uma linguagem que forneça suporte a essa prática como C++ ou Java ao invés de tentar implementar algo assim em C, isso é somente um teste dos limites da linguagem (e da criatividade :D).
+O uso do termo "Stack Unwinding" é meio mentiroso se considerado a definição de outras linguagens como C++, afinal aqui não existe a pilha de símbolos que carrega exatamente cada objeto e consegue chamar o destrutor individualmente em cada um ao ser dado o erro, o erro aqui é propagado "globalmente", a primeira exception a ser lançada vai varrer a stack inteira liberando tudo termiando em 0x1, é mais semelhante a um garbage collector que é ativado no primeiro erro no seu funcionamento interno, porém como o efeito é a limpeza efetiva da Stack, podemos chamar de Unwind mesmo não sendo o mesmo funcionamento ou implementação, porque ele efetivamente "volta" a Stack para um estado anterior.
+RAII também não é exatamente "real" nesse contexto, é uma enganação implementada por um atributo especifico da GNU que força a liberação/destruição por uma função de limpeza, porém é uma tremenda gambiarra principalmente no contexto implementado, entretanto como o funcionamento e efeito final são semelhantes ao RAII original, podemos chamar por esse termo.
 
 ## Requisitos Técnicos
 
